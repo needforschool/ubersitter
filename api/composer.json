@@ -1,0 +1,6 @@
+{
+    "name": "nfactoryschool/ubersitter",
+    "require": {
+        "symfony/dotenv": "^5.2"
+    }
+}
