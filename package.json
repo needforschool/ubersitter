@@ -1,0 +1,9 @@
+{
+  "name": "nfactory-ubersitter",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "usinstall": "cd server && composer install && cd ../client && yarn install || npm install",
+    "usbuild": "cd client && (yarn export || npm run export) && cd .. && (mv client/out build || move client/out build) && (xcopy /E /I server build-server || cp server build-server) && (mv build-server build/api || move build-server build/api) && echo \"BUILD DONE: You just need to complete /build/.env\""
+  }
+}
