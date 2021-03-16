@@ -28,7 +28,7 @@ class UsersModel extends Model
      */
     public function getUserByEmail(string $email): object
     {
-        $statement = "SELECT * FROM user WHERE email = '$email'";
+        $statement = "SELECT * FROM us_users WHERE email = '$email'";
         return $this->db->getData($statement, true);
     }
 }

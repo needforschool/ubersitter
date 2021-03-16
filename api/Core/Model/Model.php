@@ -60,9 +60,8 @@ class Model
      * Récupère une ligne d'une table dans la BDD
      *
      * @param integer $id
-     * @return object
      */
-    public function get(int $id): object
+    public function get(int $id)
     {
 
         return $this->db->getData("SELECT * FROM $this->table WHERE id = $id", true);

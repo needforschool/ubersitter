@@ -18,7 +18,7 @@ class UsersController extends Controller
         $result = [];
         if (isset($data['id'])) {
             $user = $this->userModel->get($data['id']);
-            $result[] = [
+            if (!empty($user)) $result = [
                 'id' => $user->id,
                 'firstname' => $user->firstname,
                 'lastname' => $user->lastname,
