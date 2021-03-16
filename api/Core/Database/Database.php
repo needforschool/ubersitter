@@ -15,7 +15,7 @@ class Database{
      */
     public function __construct()
     {
-        require ROOT."Config/DbConfig.php";
+        require ROOT."Config/db.php";
         $this->host = $config["dbHost"];
         $this->dbname = $config["dbName"];
         $this->user = $config["dbUser"];

@@ -1,7 +1,7 @@
 <?php
 
 $basepath = realpath(dirname(__FILE__) . '/../..');
-require $basepath . '/vendor/autoload.php';
+require $basepath . '/api/vendor/autoload.php';
 
 use Symfony\Component\Dotenv\Dotenv;
 
