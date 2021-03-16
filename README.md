@@ -8,8 +8,7 @@
 </div>
 
 # NFactory - UberSitter
-UberSitter est un projet dans le cadre d'une formation [NFactory School](https://nfactory.school) qui consiste à développer une solution web permettant d'une part à des professionnels de la garde d'enfant de
-proposer leurs services et, d'autre part, à des parents recherchant une solution de garde ponctuelle ou régulière pour leurs enfants.
+UberSitter est un projet dans le cadre d'une formation [NFactory School](https://nfactory.school) qui consiste à développer un site vitrine représentant une entreprise spécialisée dans l’analyse réseau.
 
 ## Installation
 ...
