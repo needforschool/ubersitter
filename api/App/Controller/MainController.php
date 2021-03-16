@@ -8,6 +8,6 @@ class MainController extends Controller
 {
     public function init()
     {
-        $this->render('main');
+        $this->render();
     }
 }
