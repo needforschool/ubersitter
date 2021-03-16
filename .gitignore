@@ -4,3 +4,4 @@ vendor
 node_modules
 composer.phar
 .DS_Store
+/build*
