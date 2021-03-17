@@ -1,0 +1,11 @@
+@import '../theme.scss';
+
+.modal {
+    position: absolute;
+    top: 88px;
+    bottom: 24px;
+    width: 400px;
+    left: calc((100vw - 1400px) / 2 + 15px);
+    box-shadow: rgb(0 0 0 / 15%) 0px 4px 16px;
+    background-color: $colorWhitePrimary;
+}
