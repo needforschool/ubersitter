@@ -1,0 +1,65 @@
+@import "../theme.scss";
+
+.auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .authContainer {
+        width: 100%;
+        max-width: 360px;
+        display: flex;
+        flex-direction: column;
+        padding: 15px 15px;
+
+        .imgLink {
+            align-self: center;
+            .img {
+                width: 150px;
+                height: auto;
+                transition: all 0.2s;
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+        }
+
+        .title {
+            margin-top: 50px;
+            font-size: $fontSizeMedium;
+        }
+
+        .inputContainer {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+
+            label {
+                font-size: $fontSizeSmall;
+            }
+            input {
+                margin-top: 15px;
+
+                &[type="file"] {
+                    border: 0 !important;
+                }
+            }
+        }
+
+        .radioRow {
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            .radioContainer {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .btn {
+            margin-top: 30px;
+            width: 100%;
+        }
+    }
+}

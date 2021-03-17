@@ -1,0 +1,18 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 500;
+}
+
+.map {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    .mapbox {
+        height: 100%;
+        width: 100%;
+    }
+}

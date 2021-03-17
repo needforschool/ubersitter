@@ -1,0 +1,31 @@
+@import "../theme.scss";
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    padding: 6px 11px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: $fontSizeNormal;
+    font-weight: $fontWeightMedium;
+    color: $colorBlackPrimary;
+    position: relative;
+    background-color: $colorWhitePrimary;
+    opacity: 1;
+    transition: all 0.2s ease 0s;
+    cursor: pointer;
+    box-shadow: rgb(255 255 255 / 70%) 0px 10px 40px -10px;
+
+    &:hover {
+        filter: brightness(0.75);
+    }
+
+    &.porcelain {
+        color: $colorWhitePrimary;
+        background-color: $colorPorcelainPrimary;
+        box-shadow: rgb(230 103 103 / 70%) 0px 10px 40px -10px;
+    }
+}
