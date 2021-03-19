@@ -1,4 +1,4 @@
-@import '../theme.scss';
+@import "../theme.scss";
 
 .modal {
     position: absolute;
@@ -8,4 +8,76 @@
     left: calc((100vw - 1400px) / 2 + 15px);
     box-shadow: rgb(0 0 0 / 15%) 0px 4px 16px;
     background-color: $colorWhitePrimary;
+    display: flex;
+    flex-direction: column;
+
+    .header {
+        padding: 32px 16px;
+        background-color: $colorBluePrimary;
+        font-size: $fontSizeTitle;
+        color: $colorWhitePrimary;
+        line-height: 1.2;
+    }
+
+    .container {
+        overflow-y: auto;
+        height: 100%;
+        .searchBar {
+            padding: 8px 15px 0;
+        }
+
+        .list {
+            .item {
+                display: flex;
+                cursor: pointer;
+                background-color: $colorWhitePrimary;
+                transition: all .2s;
+
+                &:hover {
+                    background-color: $colorGraySecondary;
+                }
+                .icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 64px;
+                    width: 64px;
+                    .circle {
+                        background-color: $colorGrayPrimary;
+                        height: 40px;
+                        width: 40px;
+                        border-radius: 25px;
+                        color: $colorWhitePrimary;
+                        font-size: $fontSizeMedium;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        &.blue {
+                            background-color: $colorBluePrimary;
+                        }
+                    }
+                }
+                .content {
+                    flex: 1;
+                    border-bottom: 1px solid $colorGraySecondary;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    padding: 10px 16px 12px 0px;
+                    line-height: 1.4;
+
+                    .title {
+                        font-weight: $fontWeightMedium;
+                    }
+
+                    .desc {
+                        font-weight: $fontWeightLight;
+                        color: $colorBluePrimary;
+                        font-size: $fontSizeSmall;
+                    }
+                }
+            }
+        }
+    }
 }

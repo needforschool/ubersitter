@@ -11,20 +11,24 @@ mapboxgl.accessToken = MAPBOX_TOKEN
 
 const Map = () => {
 
+    const mapRef = React.useRef<HTMLDivElement>();
+    let map;
+
     React.useEffect(() => {
         const map = new mapboxgl.Map({
-            container: "map",
+            container: mapRef.current,
             style: "mapbox://styles/mapbox/streets-v11",
+            center: [2.35, 48.85,],
+            zoom: 5
         });
-        map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
     })
 
     return (
         <>
             <Navbar className={mapStyles.navbar} />
             <div className={mapStyles.map} >
-                <div id="map" className={mapStyles.mapbox}></div>
-                <Modal />
+                <div ref={mapRef} className={mapStyles.mapbox}></div>
+                <Modal map={map} />
             </div>
         </>
     )
