@@ -1,0 +1,21 @@
+@import "../theme.scss";
+
+.filterBar {
+    padding: 12px 16px 2px;
+    display: flex;
+
+    .button {
+        border-radius: 24px;
+        padding: 6px 12px;
+        background-color: $colorGraySecondary;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        i {
+            margin: 0 5px;
+        }
+    }
+}
