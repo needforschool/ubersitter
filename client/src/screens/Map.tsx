@@ -12,7 +12,7 @@ mapboxgl.accessToken = MAPBOX_TOKEN
 const Map = () => {
 
     const mapRef = React.useRef<HTMLDivElement>();
-    let map;
+    const [map, setMap] = React.useState(null)
 
     React.useEffect(() => {
         const map = new mapboxgl.Map({
@@ -20,7 +20,7 @@ const Map = () => {
             style: "mapbox://styles/mapbox/streets-v11",
             center: [2.35, 48.85,],
             zoom: 5
-        });
+        })
     })
 
     return (

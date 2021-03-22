@@ -4,7 +4,11 @@
     height: 60px;
     color: $colorWhitePrimary;
     background-color: $colorBlackPrimary;
-    padding: 0 15px;
+
+    @media (max-width: $breakpoint-tablet) {
+        background-color: transparent;
+        color: $colorBlackPrimary;
+    }
 
     .navbarContainer {
         display: flex;
@@ -17,6 +21,14 @@
 
             &:hover {
                 color: rgba($color: $colorWhitePrimary, $alpha: 0.8);
+            }
+
+            @media (max-width: $breakpoint-tablet) {
+                color: rgba($color: $colorBlackPrimary, $alpha: 1);
+
+                &:hover {
+                    color: rgba($color: $colorBlackPrimary, $alpha: 0.8);
+                }
             }
         }
 

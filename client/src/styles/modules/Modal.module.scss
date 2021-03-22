@@ -11,6 +11,24 @@
     display: flex;
     flex-direction: column;
 
+    @media (min-width: $breakpoint-tablet) and (max-width: 1439px) {
+        left: 15px;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+        width: 100vw;
+        top: inherit;
+        bottom: 0;
+        left: 0;
+        height: 60vh;
+
+        color: rgba($color: $colorBlackPrimary, $alpha: 1);
+
+        &:hover {
+            color: rgba($color: $colorBlackPrimary, $alpha: 0.8);
+        }
+    }
+
     .header {
         padding: 32px 16px;
         background-color: $colorBluePrimary;
@@ -31,7 +49,7 @@
                 display: flex;
                 cursor: pointer;
                 background-color: $colorWhitePrimary;
-                transition: all .2s;
+                transition: all 0.2s;
 
                 &:hover {
                     background-color: $colorGraySecondary;
