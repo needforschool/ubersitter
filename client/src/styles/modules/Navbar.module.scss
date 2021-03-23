@@ -39,7 +39,18 @@
         }
 
         .nav {
+            display: flex;
+            align-items: center;
             .navItem {
+                margin: 0 10px;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
             }
         }
     }

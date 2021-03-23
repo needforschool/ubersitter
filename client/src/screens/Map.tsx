@@ -9,7 +9,7 @@ import { MAPBOX_TOKEN } from '@services/mapbox';
 
 mapboxgl.accessToken = MAPBOX_TOKEN
 
-const Map = () => {
+const Map = ({ session }) => {
 
     const mapRef = React.useRef<HTMLDivElement>();
     const [map, setMap] = React.useState(null)
@@ -25,7 +25,7 @@ const Map = () => {
 
     return (
         <>
-            <Navbar className={mapStyles.navbar} />
+            <Navbar className={mapStyles.navbar} session={session} />
             <div className={mapStyles.map} >
                 <div ref={mapRef} className={mapStyles.mapbox}></div>
                 <Modal map={map} />

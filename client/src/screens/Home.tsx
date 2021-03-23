@@ -1,8 +1,8 @@
 import Navbar from '@components/Navbar';
 
-const Home = () => (
+const Home = ({ session }) => (
     <>
-        <Navbar />
+        <Navbar session={session} />
     </>
 )
 
