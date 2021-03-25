@@ -28,4 +28,14 @@
         background-color: $colorPorcelainPrimary;
         box-shadow: rgb(230 103 103 / 70%) 0px 10px 40px -10px;
     }
+
+    &.black {
+        color: $colorWhitePrimary;
+        background-color: $colorBlackPrimary;
+        box-shadow: rgb(0 0 0 / 70%) 0px 10px 40px -10px;
+    }
+    
 }
+
+
+
