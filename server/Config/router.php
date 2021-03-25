@@ -23,10 +23,14 @@ switch ($route) {
         break;
     case 'auth/session':
         $controller = new AuthController();
-        $controller->auth_session();
+        $controller->auth_session($_POST);
         break;
     case 'auth/signup':
         $controller = new AuthController();
         $controller->auth_signup($_POST);
+        break;
+    case 'auth/signin':
+        $controller = new AuthController();
+        $controller->auth_signin($_POST);
         break;
 }

@@ -9,6 +9,7 @@
     "export": "next build && next export"
   },
   "dependencies": {
+    "@createnextapp/async-local-storage": "^1.0.1",
     "axios": "^0.21.1",
     "mapbox-gl": "^2.1.1",
     "next": "10.0.9",

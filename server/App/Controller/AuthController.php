@@ -56,9 +56,21 @@ class AuthController extends Controller
         $this->render($result);
     }
 
-    public function auth_session()
+    public function auth_session($data)
     {
-        $result = isset($_SESSION['ubersitter-server']) ? $_SESSION['ubersitter-server'] : ['id' => null];
+        $result = ['id' => null];
+        $user = $this->usersModel->getUserByEmailAndToken($data["email"], $data["token"]);
+
+        if ($user) {
+            $result = [
+                'id' => $user->id,
+                'email' => $user->email,
+                'firstname' => $user->firstname,
+                'lastname' => $user->lastname,
+                'roles' => $user->roles
+            ];
+        }
+
         $this->render($result);
     }
 
@@ -72,8 +84,38 @@ class AuthController extends Controller
             $user["created_at"] = $this->usersModel->now();
             $user["updated_at"] = $this->usersModel->now();
             $user["roles"] = $data['roles'];
-            $this->usersModel->add($user);
-            $result = ['success' => true];
+
+            $finalUser = $this->usersModel->getUserByEmail($data["email"]);
+            if (!$finalUser) {
+                $this->usersModel->add($user);
+                $result = [
+                    'success' => true,
+                    'session' => [
+                        'email' => $finalUser->email,
+                        'token' => $finalUser->token
+                    ]
+                ];
+            }
+        }
+        $this->render($result);
+    }
+
+    public function auth_signin($data)
+    {
+        $result = ['success' => false];
+        if (isset($data["email"])) {
+            $result = ['success' => false];
+            $user = $this->usersModel->getUserByEmail($data["email"]);
+
+            if ($user && password_verify($data["password"], $user->password)) {
+                $result = [
+                    'success' => true,
+                    'session' => [
+                        'email' => $user->email,
+                        'token' => $user->token
+                    ]
+                ];
+            }
         }
         $this->render($result);
     }

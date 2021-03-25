@@ -4,6 +4,7 @@ import navbarStyles from '@styles/modules/Navbar.module.scss';
 
 import Button from './Button';
 import Link from './Link';
+import React from 'react';
 
 const Navbar = ({ className, session }: { className?: string, session: any }) => {
     const { pathname } = useRouter();
@@ -17,8 +18,8 @@ const Navbar = ({ className, session }: { className?: string, session: any }) =>
                     </Link>
                 </div>
                 <ul className={navbarStyles.nav}>
-                    {session?.id ? <li className={navbarStyles.navItem}><Link href="/account" className={navbarStyles.navLink}>{session?.id}</Link></li> : null}
                     {pathname === '/' ? <li className={navbarStyles.navItem}><Link href={session?.id ? '/map' : '/auth'} className={navbarStyles.navLink}><Button color='porcelain'>Lancer l'application</Button></Link></li> : null}
+                    {session?.id ? <li className={navbarStyles.navItem}><Link href="/account" className={navbarStyles.navLink}>{session?.firstname} {session?.lastname}</Link></li> : null}
                 </ul>
             </Container>
         </nav>

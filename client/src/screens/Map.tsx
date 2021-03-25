@@ -1,6 +1,10 @@
 import React from 'react';
+import { useRouter } from 'next/router';
+
 import Navbar from '@components/Navbar';
 import Modal from '@components/Modal';
+import Loading from './Loading';
+
 import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
 
 import mapStyles from "@styles/modules/Map.module.scss";
@@ -10,6 +14,12 @@ import { MAPBOX_TOKEN } from '@services/mapbox';
 mapboxgl.accessToken = MAPBOX_TOKEN
 
 const Map = ({ session }) => {
+
+    const router = useRouter();
+    if (!session) {
+        router.push('/', null, { shallow: true });
+        return <Loading />
+    }
 
     const mapRef = React.useRef<HTMLDivElement>();
     const [map, setMap] = React.useState(null)

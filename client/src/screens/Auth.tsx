@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import React from 'react'
 import { useRouter } from 'next/router'
 import axios from 'axios'
+import AsyncLocalStorage from '@createnextapp/async-local-storage'
 
 import Image from '@components/Image'
 import Link from '@components/Link'
@@ -12,14 +13,7 @@ import { endpoint } from '@services/mvc'
 
 const Auth = ({ session }) => {
 
-    const router = useRouter();
-
-    if (session?.id) {
-        router.push('/');
-        return <Loading />;
-    }
-
-    const [state, setState] = useState({
+    const [state, setState] = React.useState({
         step: authType.Welcome,
         message: null,
         firstname: '',
@@ -29,6 +23,12 @@ const Auth = ({ session }) => {
         docUrl: '',
         email: ''
     })
+
+    const router = useRouter();
+    if (session) {
+        router.push('/map', null, { shallow: true });
+        return <Loading />
+    }
 
     const handleChange = event => {
         event.preventDefault();
@@ -61,11 +61,28 @@ const Auth = ({ session }) => {
                 formData.append('password', state.password)
                 formData.append('roles', state.role)
                 axios.post(`${endpoint}auth/signup`, formData)
-                    .then(res => {
-                        if(res.data.success) router.push('/map');
+                    .then(async res => {
+                        if (res.data.success) {
+                            await AsyncLocalStorage.setItem('us_session', JSON.stringify(res.data.session));
+                            window.location.assign('/map');
+                        }
                     })
                     .catch(error => {
                         //something
+                    });
+                break;
+            case authType.SignIn:
+                formData.append('email', state.email)
+                formData.append('password', state.password)
+                axios.post(`${endpoint}auth/signin`, formData)
+                    .then(async res => {
+                        if (res.data.success) {
+                            await AsyncLocalStorage.setItem('us_session', JSON.stringify(res.data.session));
+                            window.location.assign('/map');
+                        }
+                    })
+                    .catch(error => {
+                        //TODO: error message
                     });
                 break;
             default:

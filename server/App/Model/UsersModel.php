@@ -31,4 +31,10 @@ class UsersModel extends Model
         $statement = "SELECT * FROM us_users WHERE email = '$email'";
         return $this->db->getData($statement, true);
     }
+
+    public function getUserByEmailAndToken(string $email, string $token)
+    {
+        $statement = "SELECT * FROM us_users WHERE email = '$email' AND token = '$token'";
+        return $this->db->getData($statement, true);
+    }
 }
