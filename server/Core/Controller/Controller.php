@@ -18,13 +18,14 @@ class Controller
     public function render($content = null)
     {
         header('Content-type: application/json');
+        header("Access-Control-Allow-Origin: *");
         if (empty($content)) {
             header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
-            $content = [
-                'message' => 'Not found'
-            ];
+            $content = 'Cannot GET ' . $_SERVER['REQUEST_URI'];;
+            die($content);
+        } else {
+            $json = json_encode($content, JSON_PRETTY_PRINT);
+            die($json);
         }
-        $json = json_encode($content, JSON_PRETTY_PRINT);
-        die($json);
     }
 }

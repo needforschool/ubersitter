@@ -42,6 +42,8 @@ class Model
         $values = substr($values, 0, -1) . ")";
 
         $statement .= $values;
+
+        print_r($statement);
         $this->db->postData($statement);
     }
 
@@ -77,5 +79,15 @@ class Model
     {
         $statement = "DELETE FROM $this->table WHERE id = $id";
         $this->db->postData($statement);
+    }
+
+    /**
+     * Donne l'heure exacte en format (Y-m-d H:i:s), cela évite d'utiliser la foncion SQL si le serveur n'est pas configuré.
+     * 
+     * @return string
+     */
+    public function now()
+    {
+        return (new \DateTime())->format('Y-m-d H:i:s');
     }
 }

@@ -9,12 +9,17 @@
     "export": "next build && next export"
   },
   "dependencies": {
+    "@createnextapp/async-local-storage": "^1.0.1",
+    "axios": "^0.21.1",
     "mapbox-gl": "^2.1.1",
     "next": "10.0.9",
+    "opencage-api-client": "^1.0.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-spinners": "^0.10.6",
     "remixicon": "^2.5.0",
-    "sass": "^1.32.8"
+    "sass": "^1.32.8",
+    "swr": "^0.5.4"
   },
   "devDependencies": {
     "@types/node": "^14.14.35",
