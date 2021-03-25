@@ -1,7 +1,7 @@
 <?php
 
+use App\Controller\AuthController;
 use App\Controller\MainController;
-use App\Controller\UsersController;
 
 $route = $_GET['route'];
 
@@ -13,12 +13,24 @@ switch ($route) {
         $controller = new MainController();
         $controller->init();
         break;
-    case 'users':
-        $controller = new UsersController();
-        $controller->users($_GET);
+        // case 'users':
+        //     $controller = new UsersController();
+        //     $controller->users($_GET);
+        //     break;
+    case 'auth/account':
+        $controller = new AuthController();
+        $controller->auth_account($_POST);
         break;
-    case 'users/add':
-        echo $_GET['id'];
-        $controller = new UsersController();
+    case 'auth/session':
+        $controller = new AuthController();
+        $controller->auth_session($_POST);
+        break;
+    case 'auth/signup':
+        $controller = new AuthController();
+        $controller->auth_signup($_POST);
+        break;
+    case 'auth/signin':
+        $controller = new AuthController();
+        $controller->auth_signin($_POST);
         break;
 }

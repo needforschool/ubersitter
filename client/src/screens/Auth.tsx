@@ -1,46 +1,97 @@
-import { useState } from 'react'
+import React from 'react'
+import { useRouter } from 'next/router'
+import axios from 'axios'
+import AsyncLocalStorage from '@createnextapp/async-local-storage'
+
 import Image from '@components/Image'
 import Link from '@components/Link'
 import Button from '@components/Button'
+import Loading from '@screens/Loading'
 
 import authStyles from '@styles/modules/Auth.module.scss'
+import { endpoint } from '@services/mvc'
 
-const Auth = () => {
+const Auth = ({ session }) => {
 
-    const [state, setState] = useState({
+    const [state, setState] = React.useState({
         step: authType.Welcome,
         message: null,
         firstname: '',
         lastname: '',
+        password: '',
         role: 'customer',
-        docUrl: "",
+        docUrl: '',
         email: ''
     })
+
+    const router = useRouter();
+    if (session) {
+        router.push('/map', null, { shallow: true });
+        return <Loading />
+    }
 
     const handleChange = event => {
         event.preventDefault();
         setState({ ...state, [event.target.name]: event.target.value });
-        console.log(state)
     }
 
     const handleRadioChange = event => {
         setState({ ...state, [event.target.name]: event.target.value });
-        console.log(state)
     }
 
-
-    const submitHandler = event => {
+    const submitHandler = async event => {
         event.preventDefault();
-        console.log(state)
+        let formData = new FormData();
         switch (state.step) {
             case authType.Welcome:
-                setState({ ...state, step: authType.SignUp })
+                formData.append('email', state.email)
+                axios.post(`${endpoint}auth/account`, formData)
+                    .then(res => {
+                        if (res.data.exist) setState({ ...state, step: authType.SignIn })
+                        else setState({ ...state, step: authType.SignUp })
+                    })
+                    .catch(error => {
+                        //something
+                    });
+                break;
+            case authType.SignUp:
+                formData.append('email', state.email)
+                formData.append('firstname', state.firstname)
+                formData.append('lastname', state.lastname)
+                formData.append('password', state.password)
+                formData.append('roles', state.role)
+                axios.post(`${endpoint}auth/signup`, formData)
+                    .then(async res => {
+                        if (res.data.success) {
+                            await AsyncLocalStorage.setItem('us_session', JSON.stringify(res.data.session));
+                            window.location.assign('/map');
+                        }
+                    })
+                    .catch(error => {
+                        //something
+                    });
+                break;
+            case authType.SignIn:
+                formData.append('email', state.email)
+                formData.append('password', state.password)
+                axios.post(`${endpoint}auth/signin`, formData)
+                    .then(async res => {
+                        if (res.data.success) {
+                            await AsyncLocalStorage.setItem('us_session', JSON.stringify(res.data.session));
+                            window.location.assign('/map');
+                        }
+                    })
+                    .catch(error => {
+                        //TODO: error message
+                    });
                 break;
             default:
                 setState({ ...state, step: authType.Welcome })
                 break;
         }
+        console.log(state)
     }
+
 
     return (
         <section className={authStyles.auth}>

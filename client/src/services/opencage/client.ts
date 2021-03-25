@@ -1,0 +1,1 @@
+export const OPENCAGE_KEY = process.env.NEXT_PUBLIC_OPENCAGE_KEY || '';

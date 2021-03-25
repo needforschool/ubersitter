@@ -1,0 +1,1 @@
+export const endpoint: string = process.env.NEXT_PUBLIC_MVC_ENDPOINT || '/api/';

@@ -7,9 +7,9 @@ import Button from '@components/Button'
 
 import homeStyles from '@styles/modules/Home.module.scss'
 
-const Home = () => (
+const Home = ({ session }) => (
     <>
-        <Navbar />
+        <Navbar session={session} />
         <Container>
             <div className={homeStyles.image_font}>
                 <Image className={homeStyles.container} src="/assets/img/deux-enfants.jpg" alt="cool" />
