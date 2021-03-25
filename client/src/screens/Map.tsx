@@ -31,14 +31,16 @@ const Map = ({ session }) => {
             center: [2.35, 48.85,],
             zoom: 5
         })
-    })
+
+        setMap(map)
+    }, [])
 
     return (
         <>
             <Navbar className={mapStyles.navbar} session={session} />
             <div className={mapStyles.map} >
                 <div ref={mapRef} className={mapStyles.mapbox}></div>
-                <Modal map={map} />
+                {map ? <Modal map={map} /> : null}
             </div>
         </>
     )
