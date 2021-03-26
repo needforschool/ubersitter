@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 25 mars 2021 à 16:36
+-- Généré le : ven. 26 mars 2021 à 10:26
 -- Version du serveur :  10.4.14-MariaDB
 -- Version de PHP : 7.4.11
 
@@ -52,8 +52,8 @@ CREATE TABLE `us_users_children` (
   `lastname` varchar(100) NOT NULL,
   `gender` varchar(30) NOT NULL,
   `birthdate` date NOT NULL,
-  `docUrl` varchar(255) NOT NULL,
-  `note` text NOT NULL,
+  `docUrl` varchar(255) DEFAULT NULL,
+  `note` text DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

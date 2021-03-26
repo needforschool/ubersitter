@@ -16,7 +16,7 @@ mapboxgl.accessToken = MAPBOX_TOKEN
 const Map = ({ session }) => {
 
     const router = useRouter();
-    if (!session) {
+    if (!session || !session.id) {
         router.push('/', null, { shallow: true });
         return <Loading />
     }
@@ -40,7 +40,7 @@ const Map = ({ session }) => {
             <Navbar className={mapStyles.navbar} session={session} />
             <div className={mapStyles.map} >
                 <div ref={mapRef} className={mapStyles.mapbox}></div>
-                {map ? <Modal map={map} /> : null}
+                {map ? <Modal map={map} session={session} /> : null}
             </div>
         </>
     )

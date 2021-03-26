@@ -1,3 +1,5 @@
+@import "../theme.scss";
+
 .navbar {
     position: fixed;
     top: 0;
@@ -14,5 +16,8 @@
     .mapbox {
         height: 100%;
         width: 100%;
+        @media (max-width: $breakpoint-tablet) {
+            height: 40vh;
+        }
     }
 }

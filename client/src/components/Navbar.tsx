@@ -19,7 +19,7 @@ const Navbar = ({ className, session }: { className?: string, session: any }) =>
                 </div>
                 <ul className={navbarStyles.nav}>
                     {pathname === '/' ? <li className={navbarStyles.navItem}><Link href={session?.id ? '/map' : '/auth'} className={navbarStyles.navLink}><Button color='porcelain'>Lancer l'application</Button></Link></li> : null}
-                    {session?.id ? <li className={navbarStyles.navItem}><Link href="/account" className={navbarStyles.navLink}>{session?.firstname} {session?.lastname}</Link></li> : null}
+                    {session?.id ? <li className={navbarStyles.navItem}><Link href="/account" className={navbarStyles.navLink}>{session?.firstname}</Link></li> : null}
                 </ul>
             </Container>
         </nav>

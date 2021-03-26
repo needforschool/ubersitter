@@ -43,7 +43,6 @@ class Model
 
         $statement .= $values;
 
-        print_r($statement);
         $this->db->postData($statement);
     }
 
