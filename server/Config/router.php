@@ -1,6 +1,7 @@
 <?php
 
 use App\Controller\AuthController;
+use App\Controller\ChildrenController;
 use App\Controller\MainController;
 
 $route = $_GET['route'];
@@ -13,10 +14,6 @@ switch ($route) {
         $controller = new MainController();
         $controller->init();
         break;
-        // case 'users':
-        //     $controller = new UsersController();
-        //     $controller->users($_GET);
-        //     break;
     case 'auth/account':
         $controller = new AuthController();
         $controller->auth_account($_POST);
@@ -32,5 +29,13 @@ switch ($route) {
     case 'auth/signin':
         $controller = new AuthController();
         $controller->auth_signin($_POST);
+        break;
+    case 'children':
+        $controller = new ChildrenController();
+        $controller->children($_POST);
+        break;
+    case 'children/add':
+        $controller = new ChildrenController();
+        $controller->children_add($_POST);
         break;
 }

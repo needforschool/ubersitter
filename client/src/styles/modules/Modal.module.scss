@@ -35,6 +35,10 @@
         font-size: $fontSizeTitle;
         color: $colorWhitePrimary;
         line-height: 1.2;
+
+        &.orange {
+            background-color: $colorOrangePrimary;
+        }
     }
 
     .container {
@@ -74,6 +78,9 @@
                         &.blue {
                             background-color: $colorBluePrimary;
                         }
+                        &.orange {
+                            background-color: $colorOrangePrimary;
+                        }
                     }
                 }
                 .content {
@@ -91,11 +98,36 @@
 
                     .desc {
                         font-weight: $fontWeightLight;
+                        color: $colorGrayPrimary;
+                        font-size: $fontSizeSmall;
+                    }
+
+                    .position {
+                        font-weight: $fontWeightLight;
                         color: $colorBluePrimary;
                         font-size: $fontSizeSmall;
                     }
                 }
             }
         }
+
+        .childrenForm {
+            display: flex;
+            flex-direction: column;
+            padding: 0 16px;
+
+            label {
+                margin-top: 15px;
+            }
+
+            .btn {
+                margin-top: 15px;
+                width: 100%;
+            }
+        }
+    }
+
+    .childrenBar {
+        padding: 6px 16px 6px;
     }
 }
