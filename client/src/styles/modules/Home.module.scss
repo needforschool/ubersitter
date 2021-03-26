@@ -1,47 +1,134 @@
-.title{
+@import "../theme.scss";
+
+.image_font {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+}
+
+.menu_fix_template {
+    visibility: visible;
+    opacity: 1;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    top: 150px;
+    left: 50px;
+    // display: block;
+    z-index: 1;
+    // direction: ltr;
+    background-color: $colorGraySecondary;
+    color: $colorBlackPrimary;
+    position: absolute;
+}
+
+.subtitle {
+    font-size: 18px;
+}
+
+.title_login {
+}
+
+.content_detais {
+    padding: 50px;
+
+    .detais {
+        padding-right: 50px;
+        font-size: 18px;
+    }
+}
+
+.title_login {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.boutton {
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-bottom: 14px;
+    margin-top: 12px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    transition-timing-function: cubic-bezier(0, 0, 1, 1);
+    transition-duration: 200ms;
+    transition-property: background;
+    font-size: 16px;
+}
+
+// .container{
+//  text-align: center;
+//     text-justify: auto;
+//     display: flex;
+//     flex-direction: column;
+//     margin: 0 auto;
+//     padding: 0 15px;
+//     border: 30px solid;
+//     border-color: black;
+//     padding: 20px;
+//     margin-bottom: 50px;
+//     margin-top: 60px;}
+
+
+
+.title {
     margin-top: 30px;
     margin-bottom: 30px;
     font-size: 40px;
     font-weight: bold;
-    .subtitle{
+    .subtitle {
         font-size: 20px;
         margin-top: 30px;
     }
 }
-.content{
+
+
+.content {
     display: flex;
-    &-item{
+    &-item {
         display: flex;
         flex-direction: column;
-        img{
-            width: 250px;
-        }
-        .items_title{
-        }
-        @media screen and (max-width: 1477px) {
-            img{
-                width: 200px;
-                align-items: center;
-            }
+        flex: 1;
+        margin: 0 15px;
+
+        .quatre_image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
         }
     }
-   
-    .trois_photo{
+
+    .trois_photo {
         margin-bottom: 30px;
     }
-    .h2_title{
+    .h2_title {
         margin-top: 30px;
         font-size: 30px;
     }
-    .picto{
+    .picto {
         width: 120px;
         margin-top: 150px;
     }
-    
-    .paragraph{
+
+    .description {
+        margin-top: 30px;
+        display: block;
+        // margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 10px;
+        margin-inline-end: 10px;
+        font-size: 16px;
+        font-weight: normal;
+       font-family: $fontFamilyPrimary "Poppins", sans-serif;
+
+
+    }
+
+    .paragraph {
         margin-top: 30px;
     }
+    
 }
-
-
-

@@ -17,9 +17,6 @@ proposer leurs services et, d'autre part, à des parents recherchant une solutio
 ## Usage
 ...
 
-### Base de données
-...
-
 ## Credits
 Ce projet contient les éléments open source suivants:
 * [dotenv](https://github.com/symfony/dotenv)

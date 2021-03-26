@@ -13,37 +13,6 @@ class AuthController extends Controller
         $this->usersModel = new UsersModel();
     }
 
-    public function users($data)
-    {
-        $result = [];
-        if (isset($data['id'])) {
-            $user = $this->usersModel->get($data['id']);
-            if (!empty($user)) $result = [
-                'id' => $user->id,
-                'firstname' => $user->firstname,
-                'lastname' => $user->lastname,
-                'created_at' => $user->created_at,
-                'updated_at' => $user->updated_at,
-                'roles' => json_decode($user->roles)
-            ];
-        } else {
-            $users = $this->usersModel->getAll();
-            $result = [];
-            foreach ($users as $user) {
-                $result[] = [
-                    'id' => $user->id,
-                    'firstname' => $user->firstname,
-                    'lastname' => $user->lastname,
-                    'created_at' => $user->created_at,
-                    'updated_at' => $user->updated_at,
-                    'roles' => json_decode($user->roles)
-                ];
-            }
-        }
-
-        $this->render($result);
-    }
-
     public function auth_account($data)
     {
         $result = ['exist' => false];
@@ -65,6 +34,7 @@ class AuthController extends Controller
             $result = [
                 'id' => $user->id,
                 'email' => $user->email,
+                'token' => $user->token,
                 'firstname' => $user->firstname,
                 'lastname' => $user->lastname,
                 'roles' => $user->roles
@@ -84,10 +54,10 @@ class AuthController extends Controller
             $user["created_at"] = $this->usersModel->now();
             $user["updated_at"] = $this->usersModel->now();
             $user["roles"] = $data['roles'];
+            $this->usersModel->add($user);
 
             $finalUser = $this->usersModel->getUserByEmail($data["email"]);
-            if (!$finalUser) {
-                $this->usersModel->add($user);
+            if ($finalUser) {
                 $result = [
                     'success' => true,
                     'session' => [

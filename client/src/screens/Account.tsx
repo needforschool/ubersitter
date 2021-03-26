@@ -5,7 +5,7 @@ import Loading from "./Loading";
 
 const Account = ({ session }) => {
     const router = useRouter();
-    if (!session) {
+    if (!session || !session.id) {
         router.push('/', null, { shallow: true });
         return <Loading />
     }

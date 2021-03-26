@@ -177,7 +177,7 @@ const Auth = ({ session }) => {
     )
 }
 
-export let authType = {
+export const authType = {
     Welcome: 0,
     SignIn: 1,
     SignUp: 2,

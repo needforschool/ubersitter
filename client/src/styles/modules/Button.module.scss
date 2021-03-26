@@ -29,13 +29,15 @@
         box-shadow: rgb(230 103 103 / 70%) 0px 10px 40px -10px;
     }
 
+    &.orange {
+        color: $colorWhitePrimary;
+        background-color: $colorOrangePrimary;
+        box-shadow: rgb(241 144 102 / 70%) 0px 10px 40px -10px;
+    }
+
     &.black {
         color: $colorWhitePrimary;
         background-color: $colorBlackPrimary;
         box-shadow: rgb(0 0 0 / 70%) 0px 10px 40px -10px;
     }
-    
 }
-
-
-
