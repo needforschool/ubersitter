@@ -7,7 +7,6 @@ import Link from '@components/Link'
 import Button from '@components/Button'
 
 import homeStyles from '@styles/modules/Home.module.scss'
-import Footer from '@components/footer';
 
 const Home = ({ session }) => (
     <>
@@ -30,7 +29,9 @@ const Home = ({ session }) => (
                 </div>
                 <div className={homeStyles.likn_button}>
                     <div className={homeStyles.click}>
-                        {<Button className={homeStyles.boutton} color='black'>S'inscrire</Button>}
+                        <Link href="/auth">
+                            <Button className={homeStyles.boutton} color='black'>S'inscrire</Button>
+                        </Link>
                     </div>
                     <div className={homeStyles.click}>
                         <div className={homeStyles.link_click}>

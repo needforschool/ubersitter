@@ -1,9 +1,11 @@
 import { useRouter } from "next/router";
 import accountStyles from '@styles/modules/Account.module.scss';
+import AsyncLocalStorage from '@createnextapp/async-local-storage'
 
 import Navbar from "@components/Navbar";
 import Loading from "./Loading";
 import Head from "next/head";
+import Button from "@components/Button";
 
 const Account = ({ session }) => {
     const router = useRouter();
@@ -43,9 +45,11 @@ const Account = ({ session }) => {
 
                     <input type="button" id="bouton" value="Enregistrer" />
                 </form>
+                <Button style={{ marginTop: '50px' }} color="black" onClick={async () => {
+                    await AsyncLocalStorage.setItem('us_session', null);
+                    window.location.assign('/');
+                }}>Déconnexion</Button>
             </section>
-
-
         </>
     )
 }
