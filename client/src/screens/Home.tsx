@@ -9,34 +9,36 @@ import Footer from '@components/footer';
 
 const Home = ({ session }) => (
     <>
-            <Navbar session={session} />
-            <Image className={homeStyles.image_font} src="/assets/img/deux-enfants.jpg" alt="cool" />
-            <div className={homeStyles.menu_fix_template}>
-                <div className={homeStyles.fix_login}>
-                    <div className={homeStyles.title_login}>
-                        <h2>Garder vos enfants avec l'application Ubersitter</h2>
+        <Navbar session={session} />
+        <Image className={homeStyles.image_font} src="/assets/img/deux-enfants.jpg" alt="cool" />
+        <div className={homeStyles.menu_fix_template}>
+            <div className={homeStyles.fix_login}>
+                <div className={homeStyles.title_login}>
+                    <h2>Garder vos enfants avec l'application Ubersitter</h2>
+                </div>
+                <div className={homeStyles.content_detais}>
+                    <div className={homeStyles.detais}>
+                    <p>Commencer d'abord l'inscription</p>
+
+                        {/* <p>Rejoignez la plateforme bénéficiant du plus grand réseau de passagers actifs.</p> */}
                     </div>
-                    <div className={homeStyles.content_detais}>
-                        <div className={homeStyles.detais}>
-                            <p>Rejoignez la plateforme bénéficiant du plus grand réseau de passagers actifs.</p>
-                        </div>
+                </div>
+                <div className={homeStyles.likn_button}>
+                    <div className={homeStyles.click}>
+                        {<Button className={homeStyles.boutton} color='black'>S'inscrire</Button>}
                     </div>
-                    <div className={homeStyles.likn_button}>
-                        <div className={homeStyles.click}>
-                            {<Button className={homeStyles.boutton} color='black'>S'inscrire</Button>}
-                        </div>
-                        <div className={homeStyles.click}>
-                            <div className={homeStyles.link_click}>
-                                <a href=""></a>
-                                <div className={homeStyles.content_link}>
-                                </div>
+                    <div className={homeStyles.click}>
+                        <div className={homeStyles.link_click}>
+                            <a href=""></a>
+                            <div className={homeStyles.content_link}>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         <Container>
-
+            
             {/* <Link href="https://google.com">Lien incroyable</Link> */}
             {/* <Button className={homeStyles.boutton} color='black'>Vous souhaitez faire garder vos enfants</Button> */}
 
@@ -79,10 +81,10 @@ const Home = ({ session }) => (
                     </div>
                 </div>
             </div>
-            <Footer session={session} />
 
-
-
+            {/* <div className={homeStyles.click}>
+                {<Button className={homeStyles.boutton} color='black'>S'inscrire</Button>}
+            </div> */}
         </Container>
     </>
 )
