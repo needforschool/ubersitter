@@ -1,0 +1,57 @@
+@import "../theme.scss";
+
+.footer {
+    height: 60px;
+    color: $colorWhitePrimary;
+    background-color: $colorBlackPrimary;
+
+    @media (max-width: $breakpoint-tablet) {
+        background-color: transparent;
+        color: $colorBlackPrimary;
+    }
+
+    .footerContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+
+        .footerLink {
+            color: rgba($color: $colorWhitePrimary, $alpha: 1);
+
+            &:hover {
+                color: rgba($color: $colorWhitePrimary, $alpha: 0.8);
+            }
+
+            @media (max-width: $breakpoint-tablet) {
+                color: rgba($color: $colorBlackPrimary, $alpha: 1);
+
+                &:hover {
+                    color: rgba($color: $colorBlackPrimary, $alpha: 0.8);
+                }
+            }
+        }
+
+        .titleContainer {
+            .title {
+                font-size: $fontSizeMedium;
+            }
+        }
+
+        .footer {
+            display: flex;
+            align-items: center;
+            .footerItem {
+                margin: 0 10px;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}
