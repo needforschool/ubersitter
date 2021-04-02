@@ -3,6 +3,7 @@
 use App\Controller\AuthController;
 use App\Controller\ChildrenController;
 use App\Controller\MainController;
+use App\Controller\ProfessionalController;
 
 $route = $_GET['route'];
 
@@ -37,5 +38,9 @@ switch ($route) {
     case 'children/add':
         $controller = new ChildrenController();
         $controller->children_add($_POST);
+        break;
+    case 'professional':
+        $controller = new ProfessionalController();
+        $controller->professional($_POST);
         break;
 }

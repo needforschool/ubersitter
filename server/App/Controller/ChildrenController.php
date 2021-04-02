@@ -25,7 +25,7 @@ class ChildrenController extends Controller
             foreach ($children as $child) {
                 $result[] = $child;
             }
-        }
+        } else $result = ['message' => 'Invalid credentials'];
 
         $this->render($result);
     }
@@ -50,7 +50,7 @@ class ChildrenController extends Controller
             ];
             $this->usersChildrenModel->add($children);
             $result = ['success' => true];
-        }
+        } else $result = ['message' => 'Invalid credentials'];
 
         $this->render($result);
     }

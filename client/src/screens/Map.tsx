@@ -31,6 +31,7 @@ const Map = ({ session }) => {
             center: [2.35, 48.85,],
             zoom: 5
         })
+        map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 
         setMap(map)
     }, [])

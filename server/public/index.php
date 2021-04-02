@@ -1,5 +1,7 @@
 <?php
 
+error_reporting (0);
+
 use Core\App;
 
 define("ROOT", dirname(__DIR__) . "/");

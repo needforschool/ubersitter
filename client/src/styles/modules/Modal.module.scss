@@ -81,6 +81,9 @@
                         &.orange {
                             background-color: $colorOrangePrimary;
                         }
+                        &.procelain {
+                            background-color: $colorPorcelainPrimary;
+                        }
                     }
                 }
                 .content {
@@ -107,6 +110,14 @@
                         color: $colorBluePrimary;
                         font-size: $fontSizeSmall;
                     }
+                }
+
+                .details {
+                    padding-right: 15px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
                 }
             }
         }
