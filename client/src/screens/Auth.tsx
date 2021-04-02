@@ -10,6 +10,7 @@ import Loading from '@screens/Loading'
 
 import authStyles from '@styles/modules/Auth.module.scss'
 import { endpoint } from '@services/mvc'
+import Head from 'next/head'
 
 const Auth = ({ session }) => {
 
@@ -95,6 +96,9 @@ const Auth = ({ session }) => {
 
     return (
         <section className={authStyles.auth}>
+            <Head>
+                <title>Authentification | UberSitter</title>
+            </Head>
             <div className={authStyles.authContainer}>
                 <Link href="/" className={authStyles.imgLink}>
                     <Image className={authStyles.img} src="/assets/img/logo/logo-bg-transparent.png" alt="Logo UberSitter" />

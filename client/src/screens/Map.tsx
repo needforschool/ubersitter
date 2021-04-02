@@ -10,6 +10,7 @@ import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
 import mapStyles from "@styles/modules/Map.module.scss";
 
 import { MAPBOX_TOKEN } from '@services/mapbox';
+import Head from 'next/head';
 
 mapboxgl.accessToken = MAPBOX_TOKEN
 
@@ -38,6 +39,9 @@ const Map = ({ session }) => {
 
     return (
         <>
+            <Head>
+                <title>Map | UberSitter</title>
+            </Head>
             <Navbar className={mapStyles.navbar} session={session} />
             <div className={mapStyles.map} >
                 <div ref={mapRef} className={mapStyles.mapbox}></div>

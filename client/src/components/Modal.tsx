@@ -250,7 +250,7 @@ Modal.Children = ({ session, router, state, setState }) => {
                                 <Modal.ListIcon color='orange'><i className="ri-user-5-fill"></i></Modal.ListIcon>
                                 <Modal.ListContent>
                                     <div className={modalStyles.title}>{childtItem.firstname + ' ' + childtItem.lastname}</div>
-                                    <div className={modalStyles.desc}>{(childtItem.gender = 'male' ? 'Garçon' : childtItem.gender = 'female' ? 'Fille' : childtItem.gender) + ', ' + getAge(childtItem.birthdate)}</div>
+                                    <div className={modalStyles.desc}>{(childtItem.gender === 'male' ? 'Garçon' : childtItem.gender === 'female' ? 'Fille' : childtItem.gender) + ', ' + getAge(childtItem.birthdate)}</div>
                                 </Modal.ListContent>
                             </Modal.ListItem>
                         ))

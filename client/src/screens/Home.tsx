@@ -1,3 +1,5 @@
+import Head from 'next/head';
+
 import Navbar from '@components/Navbar';
 import Container from '@components/Container'
 import Image from '@components/Image'
@@ -9,9 +11,12 @@ import homeStyles from '@styles/modules/Home.module.scss'
 
 const Home = ({ session }) => (
     <>
+        <Head>
+            <title>Accueil | UberSitter</title>
+        </Head>
         <Navbar session={session} />
         <Image className={homeStyles.image_font} src="/assets/img/deux-enfants.jpg" alt="cool" />
-       
+
         <div className={homeStyles.menu_fix_template}>
             <div className={homeStyles.fix_login}>
                 <div className={homeStyles.title_login}>

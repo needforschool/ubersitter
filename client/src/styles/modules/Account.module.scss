@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    align-items: center;
+
+    .form {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        max-width: 600px;
+        width: 100%;
+
+        label,
+        input[type="button"] {
+            margin-top: 30px;
+        }
+        
+        input[type="button"] {
+            border: none;
+        }
+    }
+}
